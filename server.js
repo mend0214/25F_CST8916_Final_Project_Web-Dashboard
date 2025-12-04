@@ -123,7 +123,7 @@ app.get('/api/status', async (req, res) => {
         for (const location of locations) {
             // Simple query without subquery
             const querySpec = {
-                query: "SELECT c.location, c.safetyStatus, c.windowEndTime FROM c WHERE c.location = @location",
+                query: "SELECT c.location, c.SafetyStatus, c.windowEndTime FROM c WHERE c.location = @location",
                 parameters: [
                     { name: "@location", value: location }
                 ]
@@ -143,8 +143,8 @@ app.get('/api/status', async (req, res) => {
         }
 
         // Determine overall status
-        const overallStatus = statuses.every(s => s.safetyStatus === 'Safe') ? 'Safe' :
-            statuses.some(s => s.safetyStatus === 'Unsafe') ? 'Unsafe' : 'Caution';
+        const overallStatus = statuses.every(s => s.SafetyStatus === 'Safe') ? 'Safe' :
+            statuses.some(s => s.SafetyStatus === 'Unsafe') ? 'Unsafe' : 'Caution';
 
         res.json({
             success: true,

@@ -66,16 +66,24 @@ function updateLocationCards(locations) {
 
         // Update metrics
         document.getElementById(`ice-${locationKey}`).textContent =
-            location.avgIceThickness.toFixed(1);
+            location.AvgIceThick.toFixed(1);
         document.getElementById(`temp-${locationKey}`).textContent =
-            location.avgSurfaceTemperature.toFixed(1);
+            location.AvgSurfTemp.toFixed(1);
         document.getElementById(`snow-${locationKey}`).textContent =
-            location.maxSnowAccumulation.toFixed(1);
+            location.MaxSnowAcc.toFixed(1);
+        document.getElementById(`minmax-ice-${locationKey}`).textContent =
+            location.MinIceThick.toFixed(1) + ' / ' + location.MaxIceThick.toFixed(1);
+        document.getElementById(`minmax-temp-${locationKey}`).textContent =
+            location.MinSurfTemp.toFixed(1) + ' / ' + location.MaxSurfTemp.toFixed(1);
+        document.getElementById(`ext-${locationKey}`).textContent =
+            location.AvgExtTemp.toFixed(1);
+        document.getElementById(`count-${locationKey}`).textContent =
+            location.ReadingCount.toFixed(1);        
 
         // Update safety status
         const statusBadge = document.getElementById(`status-${locationKey}`);
-        statusBadge.textContent = location.safetyStatus;
-        statusBadge.className = `safety-badge ${location.safetyStatus.toLowerCase()}`;
+        statusBadge.textContent = location.SafetyStatus;
+        statusBadge.className = `safety-badge ${location.SafetyStatus.toLowerCase()}`;
     });
 }
 
@@ -127,7 +135,7 @@ async function updateCharts() {
         // Prepare chart data
         const iceDatasets = historicalData.map(({ location, data }) => ({
             label: location,
-            data: data.map(d => d.avgIceThickness),
+            data: data.map(d => d.AvgIceThick),
             borderColor: colors[location],
             backgroundColor: colors[location] + '33',
             tension: 0.4,
@@ -136,7 +144,7 @@ async function updateCharts() {
 
         const tempDatasets = historicalData.map(({ location, data }) => ({
             label: location,
-            data: data.map(d => d.avgSurfaceTemperature),
+            data: data.map(d => d.AvgSurfTemp),
             borderColor: colors[location],
             backgroundColor: colors[location] + '33',
             tension: 0.4,
