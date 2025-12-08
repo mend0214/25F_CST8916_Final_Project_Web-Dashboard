@@ -107,9 +107,30 @@ Example Response:
   "success": true,
   "location": "Dow's Lake",
   "data": [
-    { "windowEndTime": "2025-12-06T17:30:00Z", "ice_thickness": 31.2, "SafetyStatus": "Safe" },
-    { "windowEndTime": "2025-12-06T17:35:00Z", "ice_thickness": 31.5, "SafetyStatus": "Safe" },
-    { "windowEndTime": "2025-12-06T17:40:00Z", "ice_thickness": 32.0, "SafetyStatus": "Safe" }
+    {
+      "windowEndTime": "2025-12-06T17:30:00Z",
+      "ice_thickness": 31.2,
+      "surf_temperature": -4.0,
+      "snow_accumulation": 10.5,
+      "ext_temperature": -9.3,
+      "SafetyStatus": "Safe"
+    },
+    {
+      "windowEndTime": "2025-12-06T17:35:00Z",
+      "ice_thickness": 31.5,
+      "surf_temperature": -3.8,
+      "snow_accumulation": 11.0,
+      "ext_temperature": -9.0,
+      "SafetyStatus": "Safe"
+    },
+    {
+      "windowEndTime": "2025-12-06T17:40:00Z",
+      "ice_thickness": 32.0,
+      "surf_temperature": -3.5,
+      "snow_accumulation": 11.8,
+      "ext_temperature": -8.6,
+      "SafetyStatus": "Safe"
+    }
   ]
 }
 ```
@@ -155,8 +176,24 @@ Example Response:
   "success": true,
   "count": 120,
   "data": [
-    { "location": "Dow's Lake", "ice_thickness": 32.5, "SafetyStatus": "Safe", "windowEndTime": "2025-12-06T18:25:00Z" },
-    { "location": "Fifth Avenue", "ice_thickness": 28.1, "SafetyStatus": "Caution", "windowEndTime": "2025-12-06T18:25:00Z" }
+    {
+      "location": "Dow's Lake",
+      "ice_thickness": 32.5,
+      "surf_temperature": -3.2,
+      "snow_accumulation": 12.4,
+      "ext_temperature": -8.7,
+      "SafetyStatus": "Safe",
+      "windowEndTime": "2025-12-06T18:25:00Z"
+    },
+    {
+      "location": "Fifth Avenue",
+      "ice_thickness": 28.1,
+      "surf_temperature": -1.8,
+      "snow_accumulation": 15.0,
+      "ext_temperature": -5.2,
+      "SafetyStatus": "Caution",
+      "windowEndTime": "2025-12-06T18:25:00Z"
+    }
   ]
 }
 ```
